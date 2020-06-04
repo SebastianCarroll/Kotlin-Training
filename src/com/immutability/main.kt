@@ -18,11 +18,21 @@ fun main(args: Array<String>) {
 
     // Must wrap in curly braces if complex. $will bind to q not to answer without the braces
     println("The answer to the ${q.Question} is ${q.Answer}")
+
+    // If/else is expression in Kotlin
+    val message = if(q.Answer == q.CorrectAnswer) {
+        "You were correct"
+    } else {
+        "try again"
+    }
+
+    println(message)
 }
 
 class Question {
     var Answer:String = ""
     val Question:String = "What ...?"
+    val CorrectAnswer = "42"
 
     fun display() {
         // Java way:
