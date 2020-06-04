@@ -9,18 +9,22 @@ fun main(args: Array<String>) {
     // Could be explicit like:
     // var q:Question = Question();
     // But is unnecessary here
-    var q = Question()
+    // Null checks - nothing can be null, unless explicitly allowed with the ? operator
+    val q:Question? = Question()
 
-    q.Answer = "42" // can be reassigned/mutated
+    // Allowing q to be null, means we have to use the safe operator ?
+    // Says if q is not null, then look for a property Answer, otherwise return null
+    q?.Answer = "42" // can be reassigned/mutated
     // q.Question = "" // cannot me reassigned
 
-    q.display()
+    q?.display()
 
     // Must wrap in curly braces if complex. $will bind to q not to answer without the braces
-    println("The answer to the ${q.Question} is ${q.Answer}")
+    println("The answer to the ${q?.Question} is ${q?.Answer}")
 
     // If/else is expression in Kotlin
-    val message = if(q.Answer == q.CorrectAnswer) {
+    // Also == allows comparisons of strings
+    val message = if(q?.Answer == q?.CorrectAnswer) {
         "You were correct"
     } else {
         "try again"
