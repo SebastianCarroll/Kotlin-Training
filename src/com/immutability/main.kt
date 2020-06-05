@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     // var q:Question = Question();
     // But is unnecessary here
     // Null checks - nothing can be null, unless explicitly allowed with the ? operator
-    val q:Question? = Question()
+    val q: Question? = Question()
 
     // Allowing q to be null, means we have to use the safe operator ?
     // Says if q is not null, then look for a property Answer, otherwise return null
@@ -22,20 +22,12 @@ fun main(args: Array<String>) {
     // Must wrap in curly braces if complex. $will bind to q not to answer without the braces
     println("The answer to the ${q?.Question} is ${q?.Answer}")
 
-    // If/else is expression in Kotlin
-    // Also == allows comparisons of strings
-    val message = if(q?.Answer == q?.CorrectAnswer) {
-        "You were correct"
-    } else {
-        "try again"
-    }
-
-    println(message)
+    q?.printResult(q)
 }
 
 class Question {
-    var Answer:String = ""
-    val Question:String = "What ...?"
+    var Answer: String = ""
+    val Question: String = "What ...?"
     val CorrectAnswer = "42"
 
     fun display() {
@@ -44,5 +36,12 @@ class Question {
 
         // Kotlin way with interpolation
         println("you said $Answer")
+    }
+
+    fun printResult(q: Question?) {
+        when (Answer) {
+            CorrectAnswer -> println("You were correct")
+            else -> println("try again")
+        }
     }
 }
