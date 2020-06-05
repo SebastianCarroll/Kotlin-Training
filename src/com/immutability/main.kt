@@ -1,6 +1,7 @@
 package com.immutability
 
 import java.lang.NumberFormatException
+import java.util.*
 
 fun main(args: Array<String>) {
     println("Hello world")
@@ -26,13 +27,47 @@ fun main(args: Array<String>) {
 
     q?.printResult(q)
 
-    val number:Int? = try {
+    val number: Int? = try {
         Integer.parseInt(q?.Answer)
-    } catch (e:NumberFormatException) {
+    } catch (e: NumberFormatException) {
         null // could also be -1 etc. ANy default
     }
 
     println(number)
+
+    // Closed range from 1 to 10
+    // Step wil skip every second
+    for (i in 1..10 step 2) {
+        println(i)
+    }
+
+    // Half closed range similar to java - will not go to 10, only 10 9
+    for (i in 1 until 10) {
+        println(i)
+    }
+
+    var ages = TreeMap<String, Int>()
+    ages["Kevin"] = 55
+    ages["Sam"] = 24
+    ages["Alex"] = 24
+    ages["Harry"] = 26
+
+    // will iterate over the map and assign each
+    // name, age to the vars and then print
+    for ((name, age) in ages) {
+        println("$name is $age years old")
+    }
+
+    // Using with index method on the actual collection
+    // rather than using the old java for i = 0, ...
+    val numbers = 1..10
+    for((index, element)  in numbers.withIndex()) {
+        println("$element at $index")
+    }
+
+    // Can have a range over anything that implements the comparable interface
+    var range = 'a'..'z'
+    range.forEach(::println)
 }
 
 class Question {
