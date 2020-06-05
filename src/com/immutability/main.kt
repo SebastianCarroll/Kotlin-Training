@@ -34,7 +34,10 @@ fun main(args: Array<String>) {
     }
 
     println(number)
+    ranges()
+}
 
+fun ranges() {
     // Closed range from 1 to 10
     // Step wil skip every second
     for (i in 1..10 step 2) {
@@ -46,7 +49,7 @@ fun main(args: Array<String>) {
         println(i)
     }
 
-    var ages = TreeMap<String, Int>()
+    val ages = TreeMap<String, Int>()
     ages["Kevin"] = 55
     ages["Sam"] = 24
     ages["Alex"] = 24
@@ -66,7 +69,7 @@ fun main(args: Array<String>) {
     }
 
     // Can have a range over anything that implements the comparable interface
-    var range = 'a'..'z'
+    val range = 'a'..'z'
     range.forEach(::println)
 }
 
