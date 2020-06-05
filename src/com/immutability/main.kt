@@ -1,5 +1,7 @@
 package com.immutability
 
+import java.lang.NumberFormatException
+
 fun main(args: Array<String>) {
     println("Hello world")
     // Vars - mutable
@@ -23,6 +25,14 @@ fun main(args: Array<String>) {
     println("The answer to the ${q?.Question} is ${q?.Answer}")
 
     q?.printResult(q)
+
+    val number:Int? = try {
+        Integer.parseInt(q?.Answer)
+    } catch (e:NumberFormatException) {
+        null // could also be -1 etc. ANy default
+    }
+
+    println(number)
 }
 
 class Question {
