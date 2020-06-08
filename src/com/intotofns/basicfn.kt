@@ -16,6 +16,9 @@ fun main(args: Array<String>) {
     log("Hello world" )
     // named parameters!
     log( level = 7, msg = "Hello log level of " )
+
+    val text = "String     with multi \t space   "
+    println(text.replaceMultipleWhitespace())
 }
 
 // fun expressions!
@@ -27,4 +30,11 @@ fun max(a:Int, b:Int): Int = if (a > b) a else b
 @JvmOverloads
 fun log(msg: String, level: Int = 1) {
     println("$msg logged at level $level")
+}
+
+fun String.replaceMultipleWhitespace() : String {
+    val regex = Regex("\\s+")
+    // In an extension method, this refers to the object being passed in - which I think of loosely as the
+    // right choice as 'this' would normally refer to the object the method is attached to, which makes sense
+    return regex.replace(this, " ")
 }
