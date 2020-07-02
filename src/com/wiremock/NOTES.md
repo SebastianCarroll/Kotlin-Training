@@ -11,8 +11,34 @@ Form the http client perspective, its real http. Nothing is different as far as 
 wiremock and the real thing. Its just that we control the behaviour
 
 # Why Wiremock?
+Issues without wiremock
 * test flakiness - avoid these as much as possible
-* fault injection 
+* fault injection - timeouts, circuit breakers, error handling, etc 
+* non-determinism - every day the dependent data may change
+* load testing - dev might not be able to cope with same load as prod
+
+
+## Wiremock vs mockito-like
+
+Wiremock
+is a webserver, just like th real thing
+real http
+is external to application code
+can simulate network faults
+is language agnostic
+More production like test
+
+Mockito-like
+not a webserver
+No http takes place
+replaces the applicaiton code
+cann sim faults
+
+coupled to language
+not prod like - bleed into application
+
+## Stubbing
+
 
 ```puml
 A -> B
