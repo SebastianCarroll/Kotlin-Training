@@ -48,3 +48,25 @@ A -> B
 A -> B
 ```
 
+## Request Matching
+Can verify not only the endpoint which was to be hit but also lots of other things such as the host header
+
+URL: 
+```
+urlEqualTo("/your/url?and=query") // exact match
+urlMatching("/your/([a-z]*)\\?and=query") // regex match
+urlPathEqualTo("/your/url") // path only match
+```
+
+Header has content-type
+```
+.withHeader("Content-Type", equalTo("application/json"))
+```
+
+Same matchers exist here: 
+```
+equalToIgnoreCase
+binaryEqualTo
+containing // matches a portion
+matching //regex match
+```
