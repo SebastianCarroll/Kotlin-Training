@@ -30,6 +30,20 @@ fun main(args: Array<String>) : Unit {
     val found = ints.find(greaterThanThree)
     // if found is null, means not found
     println(found)
+
+    val nested = listOf(listOf(1,2,3), listOf(1,4,9))
+    val allPlusOne = nested
+        .flatMap { i -> i.map{ x -> x+1 } }
+            // distinct relies on hashcode, works implicitly with data class
+        .distinct()
+
+    printList(allPlusOne)
+
+    /*
+    Downsides of using map/filter in this way is intermediate lists are created to hold the data
+    Can use high amounts of memory if lists are large
+    Use sequences for this case instead
+     */
 }
 
 private fun <L> printList(sqrdInts: List<L>) {
@@ -37,5 +51,4 @@ private fun <L> printList(sqrdInts: List<L>) {
 }
 
 class Meeting(val id: Int, val title: String) {
-
 }
