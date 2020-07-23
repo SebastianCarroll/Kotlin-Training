@@ -53,6 +53,52 @@ When it doesn't block, we can't process the response/result straight away
 * CompletableFuture
 
 Problem with these is they can still block execution if not used correctly
+ Don't have async/await functions like in nodejs
 Publisher/Subscriber - would return a publish object and use a subscription
  object to manage the backpressure
+ 
+ Functional and declarative
+ Functional programming is based on concepts such as pure functions
+ , expressions, lambdas and immutability
+ Makes the code more testable, declarative and maintainable
+ Java is not functional really, however we can use these concepts to help
+  improve the code
+Imperative code - tell the computer each and every step to execute. Both what
+ to do and how to do it
+
+Declarative code - just explain what you would like to happen, not the
+ implementation details
+ 
+Data as flow: data flows through the pipeline
+
+java stream - values are pulled from the source
+Reactive streams - don't pull the value from the source, allow it to be
+ pushed through the system where backpressure can be applied if required
+ 
+ ## Spring WebFlux
+ Doesn't replace Spring MVC but works similarly
+ MVC - servlet api, blocking, synchronous, one request per thread
+ WebFlux - reactive streams, non-blocking, async, concurrent connections
+ 
+ Can use the annotation style
+ Functional style - divided into two parts, a router function and a handler
+  function
+ Also provides a kotlin DSL to make the functional style almost entirely
+  declarative. 
+ Must be reactive all the way down;
+ * reactive spring data
+ * reactive spring security
+ * non-blocking server
+ etc
+ Can use the reactive starters
+ No reactive JDBC driver for databases
+ Have to use no-sql
+ 
+## Summary
+Reactive systems are different to reactive programming
+ 
+Reactive programming - non-blocking, asynchronous, functional/declarative
+Spring webflux - alternative to Spring MVC, annontation + functional models
+, reactive stack built on project reactor
+ 
  
